@@ -135,6 +135,11 @@ img {
 background-color: white;
 }
 
+.cob ul li a:hover::after{
+  background-color: var(--base-color) !important;
+  
+}
+
 .cob ul li a{
  color: rgb(0, 0, 0) !important;
   
