@@ -1,0 +1,1058 @@
+/*Reset CSS*/
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  /*esse webkit é para uma pequena estilização dos textos*/
+  font: 400 1rem 'DM Sans', sans-serif;
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font: 700 1.875rem var(--title-font);
+  color: var(--title-color);
+  -webkit-font-smoothing: auto;
+}
+
+.button {
+  /*o display inline-flex, faz com que o container se torne inline, ou seja, respeitando o tamanho somente do conteudo, e flex, ou seja da pra mexer no width e height e nas propriedades flex, tanto que eu coloquei align-items: center;*/
+
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem var(--body-font);
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: var(--base-color-alt);
+}
+
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1) 0%,
+    hsla(var(--hue), 65%, 88%, 0.34) 100%
+  );
+}
+
+.divider-2{
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+
+img {
+  width: 100%;
+  height: auto;
+  
+}
+
+:root {
+  --header-height: 4.5rem;
+  --hue: 159;
+
+  /*HSL color mode*/
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+
+  /*fonts*/
+
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+  --title-font:'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
+}
+
+/*header*/
+
+.header {
+  /*colocamos o header como position fixed, porém ao fazer isso o conteudo sobe junto, primeiro colocamos o Z-Index de 100 para o header ficar em cima do conteudo, e colocamos TOP 0  para o header ficar obrigatoriamente em cima da pagina, se não ele iria ficar um pouco para baixo, e agora só precisariamos empurrar o conteudo que ficou atras do header, pra isso damos uma MARGIN-TOP  com a variavel HEADER-HEIGHT tanto no HOME quanto no NAV*/
+
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  background-color: var(--body-color);
+  top: 0;
+  left: 0;
+}
+
+.scroll .container .logo span{
+  /*aqui eu estou colocando novos atributos no scroll, ou seja, no js já esta configurado para por a class scroll no header quando eu rolar para baixo, dito isso eu apenas adicioneu ao span do scroll que a cor dele ficasse branca e tivesse uma transição de 0.5 segundos pra ficar mais suave*/
+  color: white;
+  transition: 0.5s ease-in-out;
+}
+
+
+
+.scroll .icon-menu{
+  /**aqui eu estou colocando novos atributos no scroll, ou seja, no js já esta configurado para por a class scroll no header quando eu rolar para baixo, nesse eu adicionei que a cor do menu fosse branca e tivesse uma transição de 0.5 segundos para ficar mais suave*/
+  color: white;
+  transition: 0.5s ease-in-out;
+}
+
+
+.scroll{
+  /*essa classe é a que eu usei com o JS para quando eu rolar, ele adicionar uma sombrinha em baixo*/
+  transition: 0.5s ease-in-out;
+  background-color: var(--base-color);
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.scroll .container .menu ul li a{
+  color: white;
+}
+
+.scroll .container .menu ul li a:hover{
+  color: rgb(0, 255, 170);
+}
+
+.scroll .container .menu ul li a:hover::after, nav ul li a.active::after{
+background-color: white;
+}
+
+.cob ul li a{
+ color: rgb(0, 0, 0) !important;
+  
+}
+
+
+.title{
+  font: 700 var(--title-font-size) var(--title-font);
+  color: var(--title-color);
+  -webkit-font-smoothing: auto;
+}
+
+.section header{
+  margin-bottom: 4rem;
+}
+
+.section header strong{
+color: var(--base-color);
+}
+
+.section .subtitle{
+  font-size: var(--subtitle-font-size);
+}
+
+.section{
+  padding: calc(5rem + var(--header-height)) 0;
+}
+
+/*Navigation*/
+
+
+
+nav {
+  /*esse height com a variavel é para empurrar o conteudo para baixo por conta do position fixed*/
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+nav ul.grid{
+  gap: 4rem;
+}
+
+nav ul li{
+  text-align: center;
+}
+
+nav ul li a{
+  transition: 0.2s;
+  position: relative;
+}
+
+
+nav ul li a:hover{
+color: var(--base-color);
+}
+
+nav ul li a::after{
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--base-color);
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after, nav ul li a.active::after{
+  width: 100%;
+}
+
+/*menu mobile*/
+
+nav .menu{
+  /*aqui é o nosso menu mobile, ele ficará escondido até que seja clicado*/
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+
+nav .menu ul{
+  display: none;
+}
+
+/* mostrar menu */
+nav.show .menu{
+  /*Aqui é a configurção do menu mobile, ele está com a classe show, pos ela é uma classe que estamos trabalhando com o JS, apenas colocamos ela quando o menu na pagina é clicado, então quando ele é clicado, a visibilidade e opacidade ficam 1 e visible, ou seja, mostro o conteudo, coloquei height e width com 100 de view height e view width, para pegar a tela toda, já que ele vai aparecer no mobile..., Top e left foram para centralizar ele ao meio da tela, usamos o display grid somente para usar um de seus atributos que é o place content center, para por o conteudo ao meio*/
+  opacity: 1;
+  visibility: visible;
+  background: var(--body-color);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-content: center;
+}
+
+
+nav.show .menu ul {
+  /*displar do ul que esta dentro do menu*/
+  display: grid;
+}
+
+
+nav.show ul.grid{
+  /*espaçamento de 4rem entre os itens do ul*/
+  gap: 4rem;
+}
+
+/*toogle menu*/
+
+.toggle{
+  /*aqui é a configuração dos icones do menu, fechar e abrir*/
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+nav .icon-close{
+  /*aqui é o incone do X para fechar o menu, posicionamos ele no mesmo lugar que o menu hamburguer, porém tiramos a visibilidade e opacidade para que ele não apareça na pagina principal, ele so irá aparecer quando clicarmos no menu*/
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+  transition: 0.2s;
+  
+}
+
+nav.show div.icon-close{
+  /*quando clicarmos no menu, o icone do X se torna visivel e com opacidade, sendo posicionado corretamente*/
+visibility: visible;
+opacity: 1;
+top: 1.4rem;
+}
+
+/*logo*/
+
+.logo {
+  font: 700 1.31rem var(--title-font);
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+.logo-alt span{
+  color: var(--body-color);
+}
+
+/*content*/ 
+
+main{
+  /*esse height com a variavel é para empurrar o conteudo para baixo por conta do position fixed*/
+ margin-top: calc(var(--header-height) + 2rem);
+}
+
+.container {
+  width: 100%;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+
+
+.grid {
+/*usamos esse grid para somente dar um gap entre os conteudos que estão na home*/
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  /*a section que criamos no html para cada area do nosso site, essa aqui é a da home, vai servir para darmos um espaçamento automatico de 5 rem em cima e em baixo*/
+  padding: 5rem 0;
+}
+
+.section .title{
+  margin-bottom: 1rem;
+}
+
+/*home*/
+
+#home {
+  /*quando criamos o before, ficou com uma rolagem laretal, o overflow: hidden; escondeu essa rolagem lateral e o conteudo ficou centralizado sem rolagem*/
+  overflow: hidden;
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before{
+  /*aqui é meio que a "sombra" que fica atras da primeira imagem, nos colocamos um "before" na imagem que é antes dela, colocamos um conteudo que height e width de 100%, colocamos position absolute para posiciona-lo atras da imagem, porém o absolute por si só, so vai bugar o conteudo, pra arrumar temos que por o position relative no container da imagem, e agora o before ira respeitar seu pai, que é um position relative. dai usamos TOP com -16.8% para joga-lo um pouco pra cima (medidas negativas jogam para fora, lado oposto de uma medida normal) e usamos left com quase a mesma medida para jogalo para a direira, pois left empurra pra direita e right empurra pra esquerda, e colocamos um index para ele ficar atras da imagem.*/
+
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -16.8%;
+  left: 16.7%;
+  z-index: 0;
+}
+
+#home .image img {
+  /*esse position e right serviu para jogar a imagem um pouco para a esquerda, já que ela estava pegando de ponta a ponta.*/
+
+  position: relative;
+  right: 2.93rem;
+}
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+  
+}
+
+#home .text p {
+  margin-bottom: 2rem;
+}
+
+/*About*/
+
+#about{
+  background-color: white;
+}
+
+#about .container {
+  margin: 0;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before{
+    /*aqui é meio que a "sombra" que fica atras da primeira imagem, nos colocamos um "before" na imagem que é antes dela, colocamos um conteudo que height e width de 100%, colocamos position absolute para posiciona-lo atras da imagem, porém o absolute por si só, so vai bugar o conteudo, pra arrumar temos que por o position relative no container da imagem, e agora o before ira respeitar seu pai, que é um position relative. dai usamos TOP com -16.8% para joga-lo um pouco pra cima (medidas negativas jogam para fora, lado oposto de uma medida normal) e usamos left com quase a mesma medida para jogalo para a direira, pois left empurra pra direita e right empurra pra esquerda, e colocamos um index para ele ficar atras da imagem.*/
+
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--base-color-second);
+    position: absolute;
+    top: -8.3%;
+    left: -33.0%;
+    z-index: 0;
+}
+
+#about .image img {
+  /*aqui fazemos com que ela pegue de ponta a ponta*/
+  position: relative;
+  right: 0;
+ 
+}
+
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+ text-align: start;
+}
+
+/*Services*/
+
+#services header{
+  text-align: center;
+}
+.cards.grid{
+  gap: 1.5rem;
+}
+
+.cado{
+  /*configuração dos cards*/
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: .25rem solid var(--base-color);
+  border-radius: .25rem .25rem 0px 0px;
+  text-align: center;
+}
+
+.icon{
+  /*icones dos cards*/
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color);
+}
+
+.card .title{
+  /*titulo dos cards*/
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/*Testimonials*/
+
+#testimonials{
+  background: white;
+}
+
+#testimonials header{
+  /* h2 do testimonials*/
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+}
+
+#testimonials blockquote{
+  /*comentario dos usuarios*/
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p{
+/*paragrafo em que esta escrito os comentarios dos usuarios*/
+position: relative;
+text-indent: 1.875rem;
+margin-bottom: 1.5rem;
+color: var(--title-color);
+}
+
+#testimonials blockquote p span{
+  /*esse span é as aspas que estao antes dos comentarios*/
+  font: 700 2.5rem serif;
+  top: -0.375rem;
+  left: -1.875rem;
+  position: absolute;
+  color: var(--base-color);
+}
+
+
+#testimonials cite{
+  /*esse cite se remete a imagem e o nome do usuario*/
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  
+}
+
+#testimonials cite img{
+  /*imagem do usuario temos 2 novos comandos aqui que é o object-fit e o clip-path: circle(), A propriedade CSS object-fit especifica como o conteúdo de um elemento substituído deve ser ajustado à caixa estabelecida pela altura e largura usadas. O conteúdo substituído é dimensionado para manter sua proporção e preencher toda a caixa de conteúdo do elemento: seu tamanho de objeto concreto é resolvido como uma restrição de capa contra a largura e a altura usadas do elemento. já o *CLIP-PATH* >>> A propriedade CSS clip-path cria uma região de recorte que define qual parte de um elemento deve ser mostrada. As partes que estão dentro da região são mostradas, enquanto as que estão fora ficam ocultas. */
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  clip-path: circle();
+  margin-right: 0.5rem;
+}
+
+/*swiper*/
+
+.swiper-slide{
+  /*São os cards que estão no slide*/
+  height: auto;
+  padding: 4rem 1rem; 
+}
+
+.swiper-pagination-bullet-active{
+  /*é uma classe que vem junto com o Swiper que é uma biblioteca de carroseis, que são esse efeito que fizemos nos cards, essa classe se refere as bolinhas que estão abaixo do carrosel, indicando em que cards estamos, aqui mudamos a cor dela para verder*/
+  background: var(--base-color);
+}
+
+/*contact*/
+
+
+
+#contact .grid{
+  /*aqui é o grid que colocamos no id contatos para que ele ganhe um gap automaticamente, entretando o gap que ja estava, estava muito grande, por isso especificamos o id que queriamos e trocamos o gap, assim so influenciando esse id e nao os outros*/
+  gap: 4rem;
+}
+
+#contact .text p{
+  margin-bottom: 2rem;
+}
+
+#contact .button i, #contact ul li i{
+  /*aqui está falando com os icones dos contatos e do botão call to action*/
+  font-size: 1.5rem;
+  margin-right: 0.652rem;
+}
+
+#contact ul.grid{
+  /*gap no ul*/
+  gap: 2rem;
+}
+
+#contact ul li {
+  /*para o icone e contato ficarem um ao lado do outro e alinhados*/
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i{
+  /*mudando a cor dos icones dos contatos*/
+  color: var(--base-color);
+}
+
+
+
+/*====  FOOTER ============================ */
+footer {
+  background: var(--base-color);
+  overflow: hidden;
+}
+
+footer.section{
+  padding: 4rem 0;
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+/*
+social com grid
+footer .social{
+  grid-auto-flow: column;
+  width: fit-content;
+}
+*/
+
+footer .social a {
+  margin-right: 2rem;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  transform: translateY(-8px);
+}
+
+/* Back to top */
+.pin{
+  background: var(--base-color);
+  color: var(--text-color-light);
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  
+
+  padding: 1rem;
+  clip-path: circle();
+
+  font-size: 1.5rem;
+  line-height: 0;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: 0.3s;
+  transform: translateY(100%);
+
+  
+}
+
+.pin.show{
+visibility: visible;
+opacity: 1;
+transition: 1s;
+transform: translateY(0);
+transform: rotate(180deg);
+}
+
+
+/*medias queries*/
+@media (min-width: 1200px){
+ 
+
+
+  .container{
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .section{
+    padding: 10rem 0;
+  }
+
+  .section header, #testimonials header{
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .button{
+    height: 3.125rem;
+  }
+
+  nav .menu{
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+
+  }
+
+  nav .menu ul{
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul li a.title{
+    font: 400 1rem var(--body-font);
+  }
+
+  nav .icon-menu{
+    display: none;
+  }
+
+  nav ul li a::after{
+    bottom: -0.9rem;
+  }
+  main{
+    margin-top: var(--header-height);
+   }
+
+  #home .container{
+    grid-auto-flow: column;
+    justify-content: space-around;
+    margin: 0 auto;
+    
+  
+  }
+
+  #home .image{
+    order: 1;
+  }
+
+  #home .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  #about .container {
+    grid-auto-flow: column;
+    margin: 0 auto;
+   }
+ 
+   #about .container .image img{
+     order: 0;
+     height: 25rem;
+   }
+ 
+   #about .container .text{
+     order: 1;
+     
+   }
+ 
+   #about .image::before{
+     content: '';
+     height: 83%;
+     width: 100%;
+     background: var(--base-color-second);
+     position: absolute;
+     top: -8.3%;
+     left: -42.0%;
+     z-index: 0;
+ }
+
+  
+
+ .serviços-container{
+  display: block;
+  margin: 0 auto;
+}  
+
+.cards{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cado{
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#contact .container{
+grid-auto-flow: column;
+align-items: center;
+}
+
+#contact .text{
+  max-width: 25rem;
+}
+
+footer.section{
+  padding: 3.75rem 0;
+}
+
+footer .container{
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .logo{
+  font-size: 2.25rem;
+}
+
+}
+
+@media (min-width: 992px){
+  :root{
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
+
+  .button{
+    height: 3.125rem;
+  }
+
+  nav .menu{
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+
+  }
+
+  nav .menu ul{
+    display: flex;
+    gap: 2rem;
+    
+  }
+
+  nav .menu ul li a.title{
+    font: 400 1.1rem var(--body-font);
+  }
+
+  nav .icon-menu{
+    display: none;
+  }
+
+  nav ul li a::after{
+    bottom: -0.9rem;
+  }
+  main{
+    margin-top: var(--header-height);
+   }
+
+   #home .container{
+    grid-auto-flow: column;
+    justify-content: space-around;
+    margin: 0 auto;
+    
+  
+  }
+
+  #home .image{
+    order: 1;
+  }
+
+  #home .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  #about .container {
+    grid-auto-flow: column;
+    margin: 0 auto;
+   }
+ 
+   #about .container .image img{
+     order: 0;
+     height: 25rem;
+   }
+ 
+   #about .container .text{
+     order: 1;
+     
+   }
+ 
+   #about .image::before{
+     content: '';
+     height: 83%;
+     width: 100%;
+     background: var(--base-color-second);
+     position: absolute;
+     top: -8.3%;
+     left: -30.0%;
+     z-index: 0;
+ }
+
+
+ .serviços-container{
+  display: block;
+  margin: 0 auto;
+}  
+
+.serviços-container header{
+  max-width: 850px;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+}
+
+.cards{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cado{
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+.testimonials header{
+  text-align: center;
+}
+
+#contact .container{
+grid-auto-flow: column;
+align-items: center;
+}
+
+#contact .text{
+  max-width: 25rem;
+}
+
+footer.section{
+  padding: 3.75rem 0;
+}
+
+footer .container{
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer .logo{
+  font-size: 2.25rem;
+}
+}
+
+@media (min-width: 767px){
+  :root{
+    --title-font-size: 1.8rem;
+    --subtitle-font-size: 1.2rem;
+  }
+
+.button{
+  height: 3.125rem;
+}
+
+nav .menu{
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+
+}
+
+nav .menu ul{
+  display: flex;
+  gap: 2rem;
+  
+}
+
+nav .menu ul li a.title{
+  font: 400 1.1rem var(--body-font);
+}
+
+nav .icon-menu{
+  display: none;
+}
+
+nav ul li a::after{
+  bottom: -0.9rem;
+}
+main{
+  margin-top: var(--header-height);
+ }
+
+ #home .container{
+  grid-auto-flow: column;
+  justify-content: space-around;
+  margin: 0 auto;
+  
+
+}
+
+#home .image{
+  order: 1;
+}
+
+#home .text {
+  order: 0;
+  max-width: 24rem;
+  text-align: left;
+}
+
+#about .container {
+  grid-auto-flow: column;
+  margin: 0 auto;
+ }
+
+ #about .container .image img{
+   order: 0;
+   height: 18rem;
+ }
+
+ #about .container .text{
+   order: 1;
+   
+ }
+
+ #about .image::before{
+   content: '';
+   height: 60%;
+   width: 100%;
+   background: var(--base-color-second);
+   position: absolute;
+   top: -4.3%;
+   left: -30.0%;
+   z-index: 0;
+}
+
+
+.serviços-container{
+display: block;
+margin: 0 auto;
+}  
+
+.serviços-container header{
+max-width: 700px;
+margin: 0 auto;
+padding-bottom: 4rem;
+}
+
+.cards{
+grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cado{
+padding-left: 0rem;
+padding-right: 0rem;
+}
+
+#testimonials header{
+text-align: center ;
+}
+
+#contact .container{
+grid-auto-flow: column;
+align-items: center;
+}
+
+#contact .text{
+max-width: 25rem;
+}
+
+footer.section{
+padding: 3.75rem 0;
+}
+
+footer .container{
+grid-auto-flow: column;
+align-items: center;
+justify-content: space-around;
+}
+
+footer .logo{
+font-size: 2.25rem;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
