@@ -27,8 +27,7 @@ h1 {
 }
 
 .button {
-  /*o display inline-flex, faz com que o container se torne inline, ou seja, respeitando o tamanho somente do conteudo, e flex, ou seja da pra mexer no width e height e nas propriedades flex, tanto que eu coloquei align-items: center;*/
-
+  
   background-color: var(--base-color);
   color: var(--text-color-light);
   height: 3.5rem;
@@ -92,7 +91,6 @@ img {
 /*header*/
 
 .header {
-  /*colocamos o header como position fixed, porém ao fazer isso o conteudo sobe junto, primeiro colocamos o Z-Index de 100 para o header ficar em cima do conteudo, e colocamos TOP 0  para o header ficar obrigatoriamente em cima da pagina, se não ele iria ficar um pouco para baixo, e agora só precisariamos empurrar o conteudo que ficou atras do header, pra isso damos uma MARGIN-TOP  com a variavel HEADER-HEIGHT tanto no HOME quanto no NAV*/
 
   border-bottom: 1px solid #e4e4e4;
   margin-bottom: 2rem;
@@ -106,7 +104,6 @@ img {
 }
 
 .scroll .container .logo span{
-  /*aqui eu estou colocando novos atributos no scroll, ou seja, no js já esta configurado para por a class scroll no header quando eu rolar para baixo, dito isso eu apenas adicioneu ao span do scroll que a cor dele ficasse branca e tivesse uma transição de 0.5 segundos pra ficar mais suave*/
   color: white;
   transition: 0.5s ease-in-out;
 }
@@ -114,14 +111,12 @@ img {
 
 
 .scroll .icon-menu{
-  /**aqui eu estou colocando novos atributos no scroll, ou seja, no js já esta configurado para por a class scroll no header quando eu rolar para baixo, nesse eu adicionei que a cor do menu fosse branca e tivesse uma transição de 0.5 segundos para ficar mais suave*/
   color: white;
   transition: 0.5s ease-in-out;
 }
 
 
 .scroll{
-  /*essa classe é a que eu usei com o JS para quando eu rolar, ele adicionar uma sombrinha em baixo*/
   transition: 0.5s ease-in-out;
   background-color: var(--base-color);
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
@@ -173,7 +168,6 @@ color: var(--base-color);
 
 
 nav {
-  /*esse height com a variavel é para empurrar o conteudo para baixo por conta do position fixed*/
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
@@ -216,7 +210,6 @@ nav ul li a:hover::after, nav ul li a.active::after{
 /*menu mobile*/
 
 nav .menu{
-  /*aqui é o nosso menu mobile, ele ficará escondido até que seja clicado*/
   opacity: 0;
   visibility: hidden;
   top: -20rem;
@@ -230,7 +223,6 @@ nav .menu ul{
 
 /* mostrar menu */
 nav.show .menu{
-  /*Aqui é a configurção do menu mobile, ele está com a classe show, pos ela é uma classe que estamos trabalhando com o JS, apenas colocamos ela quando o menu na pagina é clicado, então quando ele é clicado, a visibilidade e opacidade ficam 1 e visible, ou seja, mostro o conteudo, coloquei height e width com 100 de view height e view width, para pegar a tela toda, já que ele vai aparecer no mobile..., Top e left foram para centralizar ele ao meio da tela, usamos o display grid somente para usar um de seus atributos que é o place content center, para por o conteudo ao meio*/
   opacity: 1;
   visibility: visible;
   background: var(--body-color);
@@ -245,26 +237,22 @@ nav.show .menu{
 
 
 nav.show .menu ul {
-  /*displar do ul que esta dentro do menu*/
   display: grid;
 }
 
 
 nav.show ul.grid{
-  /*espaçamento de 4rem entre os itens do ul*/
   gap: 4rem;
 }
 
 /*toogle menu*/
 
 .toggle{
-  /*aqui é a configuração dos icones do menu, fechar e abrir*/
   color: var(--base-color);
   font-size: 1.5rem;
   cursor: pointer;
 }
 nav .icon-close{
-  /*aqui é o incone do X para fechar o menu, posicionamos ele no mesmo lugar que o menu hamburguer, porém tiramos a visibilidade e opacidade para que ele não apareça na pagina principal, ele so irá aparecer quando clicarmos no menu*/
   visibility: hidden;
   opacity: 0;
   position: absolute;
@@ -275,7 +263,6 @@ nav .icon-close{
 }
 
 nav.show div.icon-close{
-  /*quando clicarmos no menu, o icone do X se torna visivel e com opacidade, sendo posicionado corretamente*/
 visibility: visible;
 opacity: 1;
 top: 1.4rem;
@@ -299,7 +286,6 @@ top: 1.4rem;
 /*content*/ 
 
 main{
-  /*esse height com a variavel é para empurrar o conteudo para baixo por conta do position fixed*/
  margin-top: calc(var(--header-height) + 2rem);
 }
 
@@ -312,13 +298,11 @@ main{
 
 
 .grid {
-/*usamos esse grid para somente dar um gap entre os conteudos que estão na home*/
   display: grid;
   gap: 2rem;
 }
 
 .section {
-  /*a section que criamos no html para cada area do nosso site, essa aqui é a da home, vai servir para darmos um espaçamento automatico de 5 rem em cima e em baixo*/
   padding: 5rem 0;
 }
 
@@ -329,7 +313,6 @@ main{
 /*home*/
 
 #home {
-  /*quando criamos o before, ficou com uma rolagem laretal, o overflow: hidden; escondeu essa rolagem lateral e o conteudo ficou centralizado sem rolagem*/
   overflow: hidden;
 }
 
@@ -342,7 +325,6 @@ main{
 }
 
 #home .image::before{
-  /*aqui é meio que a "sombra" que fica atras da primeira imagem, nos colocamos um "before" na imagem que é antes dela, colocamos um conteudo que height e width de 100%, colocamos position absolute para posiciona-lo atras da imagem, porém o absolute por si só, so vai bugar o conteudo, pra arrumar temos que por o position relative no container da imagem, e agora o before ira respeitar seu pai, que é um position relative. dai usamos TOP com -16.8% para joga-lo um pouco pra cima (medidas negativas jogam para fora, lado oposto de uma medida normal) e usamos left com quase a mesma medida para jogalo para a direira, pois left empurra pra direita e right empurra pra esquerda, e colocamos um index para ele ficar atras da imagem.*/
 
   content: '';
   height: 100%;
@@ -355,7 +337,6 @@ main{
 }
 
 #home .image img {
-  /*esse position e right serviu para jogar a imagem um pouco para a esquerda, já que ela estava pegando de ponta a ponta.*/
 
   position: relative;
   right: 2.93rem;
@@ -397,7 +378,6 @@ main{
 }
 
 #about .image::before{
-    /*aqui é meio que a "sombra" que fica atras da primeira imagem, nos colocamos um "before" na imagem que é antes dela, colocamos um conteudo que height e width de 100%, colocamos position absolute para posiciona-lo atras da imagem, porém o absolute por si só, so vai bugar o conteudo, pra arrumar temos que por o position relative no container da imagem, e agora o before ira respeitar seu pai, que é um position relative. dai usamos TOP com -16.8% para joga-lo um pouco pra cima (medidas negativas jogam para fora, lado oposto de uma medida normal) e usamos left com quase a mesma medida para jogalo para a direira, pois left empurra pra direita e right empurra pra esquerda, e colocamos um index para ele ficar atras da imagem.*/
 
     content: '';
     height: 100%;
@@ -410,7 +390,6 @@ main{
 }
 
 #about .image img {
-  /*aqui fazemos com que ela pegue de ponta a ponta*/
   position: relative;
   right: 0;
  
@@ -506,7 +485,6 @@ color: var(--title-color);
 }
 
 #testimonials cite img{
-  /*imagem do usuario temos 2 novos comandos aqui que é o object-fit e o clip-path: circle(), A propriedade CSS object-fit especifica como o conteúdo de um elemento substituído deve ser ajustado à caixa estabelecida pela altura e largura usadas. O conteúdo substituído é dimensionado para manter sua proporção e preencher toda a caixa de conteúdo do elemento: seu tamanho de objeto concreto é resolvido como uma restrição de capa contra a largura e a altura usadas do elemento. já o *CLIP-PATH* >>> A propriedade CSS clip-path cria uma região de recorte que define qual parte de um elemento deve ser mostrada. As partes que estão dentro da região são mostradas, enquanto as que estão fora ficam ocultas. */
   width: 2rem;
   height: 2rem;
   object-fit: cover;
@@ -523,7 +501,6 @@ color: var(--title-color);
 }
 
 .swiper-pagination-bullet-active{
-  /*é uma classe que vem junto com o Swiper que é uma biblioteca de carroseis, que são esse efeito que fizemos nos cards, essa classe se refere as bolinhas que estão abaixo do carrosel, indicando em que cards estamos, aqui mudamos a cor dela para verder*/
   background: var(--base-color);
 }
 
@@ -532,7 +509,6 @@ color: var(--title-color);
 
 
 #contact .grid{
-  /*aqui é o grid que colocamos no id contatos para que ele ganhe um gap automaticamente, entretando o gap que ja estava, estava muito grande, por isso especificamos o id que queriamos e trocamos o gap, assim so influenciando esse id e nao os outros*/
   gap: 4rem;
 }
 
@@ -541,7 +517,6 @@ color: var(--title-color);
 }
 
 #contact .button i, #contact ul li i{
-  /*aqui está falando com os icones dos contatos e do botão call to action*/
   font-size: 1.5rem;
   margin-right: 0.652rem;
 }
@@ -552,7 +527,6 @@ color: var(--title-color);
 }
 
 #contact ul li {
-  /*para o icone e contato ficarem um ao lado do outro e alinhados*/
   display: flex;
   align-items: center;
 }
