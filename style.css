@@ -427,7 +427,12 @@ main{
   border-bottom: .25rem solid var(--base-color);
   border-radius: .25rem .25rem 0px 0px;
   text-align: center;
+  transition: 0.1s;
 }
+
+.cards .cado:hover{
+    transform: translateY(-15px) !important;
+  }
 
 .icon{
   /*icones dos cards*/
