@@ -13,4 +13,4 @@ Projeto feito na NLW Together da RocketSeat, Aprendi bastante com esse projeto e
 - [Swiper](https://swiperjs.com/)
 
 ## Link da Página do Projeto
-[Projeto](https://marcelowesley.github.io/BeautySalon-OriginSix/)
+- [Projeto](https://marcelowesley.github.io/BeautySalon-OriginSix/)
