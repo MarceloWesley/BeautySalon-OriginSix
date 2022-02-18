@@ -8,7 +8,7 @@ Projeto feito na NLW Together da RocketSeat, Aprendi bastante com esse projeto e
 - CSS
 - HTML
 
-## Api Usada
+## Libs Usada
 - [ScrollReveal](https://scrollrevealjs.org/)
 - [Swiper](https://swiperjs.com/)
 
