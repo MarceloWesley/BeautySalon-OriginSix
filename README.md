@@ -1,14 +1,14 @@
 # BeautySalon-OriginSix
 
-# Sobre
-Projeto feito na NLW Together da RocketSeat, Aprendi bastante com esse projeto e fiz diversas modificações nele.
+# About
+Project made at RocketSeat's NLW Together, I learned a lot from this project and made several changes to it.
 
-## Tecnologias Usadas
+## Technologies
 - JavaScript
 - CSS
 - HTML
 
-## Libs Usada
+## Library
 - [ScrollReveal](https://scrollrevealjs.org/)
 - [Swiper](https://swiperjs.com/)
 
